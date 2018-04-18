@@ -27,6 +27,10 @@ class Student
     return (@house_id).to_s
   end
 
+  def id()
+    return @id
+  end
+
   def save()
     sql = "INSERT INTO students (first_name, last_name, age) VALUES ($1, $2, $3) RETURNING id;"
     values = [@first_name, @last_name, @age]
@@ -46,6 +50,19 @@ class Student
    students = SqlRunner.run(sql, values)
    student_hash = students[0]
    return Student.new(student_hash)
+  end
+
+  def delete()
+  sql = "DELETE FROM students WHERE id = $1"
+  values = [@id]
+  SqlRunner.run( sql, values )
+end
+
+def update()
+    sql = "UPDATE students SET (first_name, last_name, age, house) = ($1, $2, $3, $4)
+    WHERE id = $5"
+    values = [@first_name, @last_name, @age, @house, @id]
+    SqlRunner.run(sql, values)
   end
 
 end

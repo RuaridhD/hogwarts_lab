@@ -1,0 +1,33 @@
+header {
+  text-align: center;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Hogwarts_coat_of_arms_colored_with_shading.svg/1200px-Hogwarts_coat_of_arms_colored_with_shading.svg.png");
+  background-size: cover;
+  background-position: top;
+  border: 3px solid white;
+  height: 300px;
+  width: 100%;
+}
+
+body {
+  background-color: LIGHTSLATEGREY;
+  font-family: Georgia;
+  font-size: 35px;
+  box-sizing: border-box;
+  color: WHITESMOKE;
+  text-align: center;
+  margin: 0 auto;
+}
+
+p {
+  color: #333;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 30px;
+}
+
+ul {
+font-family: 'Varela Round', sans-serif;
+margin: 30px auto;
+padding: 0 20px;
+list-style-type: none;
+text-align: center;
+}

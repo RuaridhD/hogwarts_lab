@@ -11,7 +11,7 @@ student1 = Student.new(
     "first_name" => "Harry",
     "last_name" => "Potter",
     "age" => 16
-    # "house_id" => house1.id
+    "house_id" => house1.id
     }
 )
 

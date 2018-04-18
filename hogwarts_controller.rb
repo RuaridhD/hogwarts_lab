@@ -35,20 +35,20 @@ end
 
 #edit
 get "/hogwarts/:id/edit" do
-  @students = Student.find(params[:id])
+  @student = Student.find(params[:id])
   erb(:edit)
   # redirect to "/hogwarts/"
   end
 
 #update
-post "/hogwarts/students/:id/edit" do
-  students = Student.new(params)
-  students.update()
+post "/hogwarts/:id/edit" do
+  @student = Student.new(params)
+  @student.update()
   redirect to "/hogwarts/students"
 end
 
 #destroy
-post "/hogwarts/students/:id/delete" do
+post "/hogwarts/:id/delete" do
   students = Student.new(params)
   students.delete()
   redirect to "/hogwarts"
