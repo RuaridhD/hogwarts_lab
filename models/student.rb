@@ -15,6 +15,18 @@ class Student
     @house_id = options["house_id"].to_i
   end
 
+  def full_name()
+    return "#{@first_name} #{@last_name}"
+  end
+
+  def age
+    return (@age)
+  end
+
+  def house()
+    return (@house_id).to_s
+  end
+
   def save()
     sql = "INSERT INTO students (first_name, last_name, age) VALUES ($1, $2, $3) RETURNING id;"
     values = [@first_name, @last_name, @age]
@@ -22,15 +34,15 @@ class Student
     @id = result[0]["id"].to_i
   end
 
-  def Student.all()
+  def self.all()
     sql = "SELECT * FROM students;"
     students = SqlRunner.run(sql)
     return students.map{|student| self.new(student)}
   end
 
-  def find_student()
+  def self.find(id)
    sql = "SELECT * FROM students WHERE id = $1;"
-   values = [@id]
+   values = [id]
    students = SqlRunner.run(sql, values)
    student_hash = students[0]
    return Student.new(student_hash)

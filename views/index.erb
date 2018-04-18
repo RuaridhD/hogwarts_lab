@@ -1,0 +1,8 @@
+<p> Students </p>
+
+<% @students.each do |student| %>
+  <p>Name: <%= student.full_name() %> </p>
+  <p>Age: <%= student.age() %></p>
+  <p><a href="/hogwarts/<%= student.id %>">Show Student</a></p>
+  <hr />
+<% end %>

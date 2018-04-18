@@ -1,0 +1,13 @@
+<h1>Show a Student Sheet</h1>
+<p>First Name: <%=@student.first_name %></p>
+<p>Last Name: <%=@student.last_name %></p>
+<p>Age: <%=@student.age %></p>
+<!-- <p>House: <%=@student.house %></p> -->
+
+<form action="/hogwarts/<%=@student.id %>/delete" method="post">
+  <input type="submit" value="Delete Student">
+</form>
+
+<form action="/hogwarts/<%=@student.id %>/edit" method="get">
+  <input type="submit" value="Edit Student">
+</form>
