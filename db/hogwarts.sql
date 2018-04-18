@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS houses;
 CREATE TABLE houses(
   id SERIAL PRIMARY KEY,
   house_name VARCHAR(255)
-)
+);
 
 CREATE TABLE students(
   id SERIAL PRIMARY KEY,
@@ -12,4 +12,4 @@ CREATE TABLE students(
   last_name VARCHAR(255),
   age INT,
   house_id INT REFERENCES houses(id)
-)
+);

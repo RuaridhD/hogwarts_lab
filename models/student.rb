@@ -1,6 +1,6 @@
 require('pg')
 require_relative('house.rb')
-# require_relative('../db/sql_runner.rb')
+require_relative('../db/sql_runner.rb')
 
 class Student
 
@@ -12,6 +12,7 @@ class Student
     @first_name = options["first_name"]
     @last_name = options["last_name"]
     @age = options["age"]
+    @house_id = options["house_id"].to_i
   end
 
   def save()
@@ -20,3 +21,19 @@ class Student
     result = SqlRunner.run(sql, values)
     @id = result[0]["id"].to_i
   end
+
+  def Student.all()
+    sql = "SELECT * FROM students;"
+    students = SqlRunner.run(sql)
+    return students.map{|student| self.new(student)}
+  end
+
+  def find_student()
+   sql = "SELECT * FROM students WHERE id = $1;"
+   values = [@id]
+   students = SqlRunner.run(sql, values)
+   student_hash = students[0]
+   return Student.new(student_hash)
+  end
+
+end
